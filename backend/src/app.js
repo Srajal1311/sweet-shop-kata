@@ -17,8 +17,11 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-// 2. CORS Setup
-app.use(cors()); 
+
+app.use(cors({
+  origin: '*', // Allow any domain to access (Easiest for interview demos)
+  credentials: true
+}));
 
 // 3. Routes
 // ✅ UNCOMMENTED: Connect the Master Router to /api/v1
