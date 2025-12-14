@@ -25,8 +25,7 @@ const userSchema = new mongoose.Schema({
   }
 });
 
-// 🔒 CORRECTED Pre-save hook
-// Notice: No 'next' in the function arguments!
+
 userSchema.pre('save', async function() {
   // 1. If password is unchanged, stop here.
   if (!this.isModified('password')) return;
@@ -36,7 +35,7 @@ userSchema.pre('save', async function() {
   this.password = await bcrypt.hash(this.password, salt);
 });
 
-// 🔑 Helper method to validate password
+
 userSchema.methods.comparePassword = async function(candidatePassword) {
   return await bcrypt.compare(candidatePassword, this.password);
 };

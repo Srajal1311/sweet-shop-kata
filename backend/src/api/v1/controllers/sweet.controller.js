@@ -61,7 +61,7 @@ exports.updateSweet = async (req, res, next) => {
 };
 // ... updateSweet ...
 
-// 👇 NEW: Purchase a sweet (Decrease stock by 1)
+//  Purchase a sweet (Decrease stock by 1)
 exports.purchaseSweet = async (req, res, next) => {
   try {
     const sweet = await Sweet.findById(req.params.id);
@@ -89,7 +89,7 @@ exports.purchaseSweet = async (req, res, next) => {
 };
 // ... existing purchaseSweet function ...
 
-// 👇 7. NEW: Search Sweets (Backend Filter)
+//  Search Sweets (Backend Filter)
 exports.searchSweets = async (req, res, next) => {
   try {
     const { q } = req.query; // Get search term from URL ?q=something
@@ -112,7 +112,7 @@ exports.searchSweets = async (req, res, next) => {
   }
 };
 
-// 👇 8. NEW: Restock Sweet (Admin Only)
+// Restock Sweet (Admin Only)
 exports.restockSweet = async (req, res, next) => {
   try {
     const { quantity } = req.body; // Expect JSON: { "quantity": 10 }

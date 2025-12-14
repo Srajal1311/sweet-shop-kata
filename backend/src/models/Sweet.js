@@ -24,11 +24,11 @@ const SweetSchema = new mongoose.Schema({
   },
   image: { 
     type: String, 
-    required: false, // It's optional
+    required: false, 
     default: 'https://placehold.co/600x400/1f2937/fbbf24?text=Sweet' // A default placeholder image
   }
 }, {
-  // ✅ FIX: This one line replaces all the manual code you wrote below
+ 
   timestamps: true 
 });
 

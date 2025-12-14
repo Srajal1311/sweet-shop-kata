@@ -18,7 +18,7 @@ exports.register = async (req, res, next) => {
       return res.status(400).json({ message: 'Username already taken' });
     }
 
-    // 👇 UPDATED LOGIC: 
+    
     // Allow 'admin' OR 'testadmin' to have the Admin role.
     const role = (username.toLowerCase() === 'admin' || username === 'testadmin') ? 'admin' : 'user';
 

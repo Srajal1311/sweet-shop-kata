@@ -11,12 +11,12 @@ export default function Home() {
   const [sweets, setSweets] = useState<Sweet[]>([]);
   const [loading, setLoading] = useState(true);
   
-  // 👇 1. Store the full user object (not just a boolean)
+  //  1. Store the full user object (not just a boolean)
   const [user, setUser] = useState<any>(null); 
   const [searchQuery, setSearchQuery] = useState('');
 
   useEffect(() => {
-    // 👇 2. Parse the user from localStorage
+    // 2. Parse the user from localStorage
     const storedUser = localStorage.getItem('user');
     if (storedUser) {
       setUser(JSON.parse(storedUser));
@@ -66,7 +66,7 @@ export default function Home() {
     sweet.category.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
-  // 👇 3. Helper variables
+  // 3. Helper variables
   const isLoggedIn = !!user;
   const isAdmin = user && user.role === 'admin';
 
@@ -93,7 +93,7 @@ export default function Home() {
           🍬 The Sweet Shop
         </h1>
 
-        {/* 👇 4. ONLY SHOW 'ADD' IF ADMIN */}
+        {/* 4. ONLY SHOW 'ADD' IF ADMIN */}
         {isAdmin && (
           <Link href="/add-sweet" className="bg-gray-800 hover:bg-gray-700 text-yellow-400 px-8 py-3 rounded-full border border-yellow-500/30 transition-all shadow-lg hover:shadow-yellow-500/20 font-semibold">
             + Add New Sweet
@@ -128,7 +128,7 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* 👇 5. ONLY SHOW EDIT/DELETE IF ADMIN */}
+              {/*5. ONLY SHOW EDIT/DELETE IF ADMIN */}
               {isAdmin && (
                 <div className="absolute top-2 right-2 flex space-x-2 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
                   <Link href={`/edit-sweet/${sweet._id}`} className="text-white hover:text-blue-200 bg-black/50 hover:bg-blue-600/80 p-2 rounded-full backdrop-blur-sm transition-all">
@@ -154,7 +154,7 @@ export default function Home() {
                     </span>
                   </div>
 
-                  {/* 👇 6. BUY BUTTON: Visible for ALL Logged in users (User OR Admin) */}
+                  {/* 6. BUY BUTTON: Visible for ALL Logged in users (User OR Admin) */}
                   {isLoggedIn && (
                     <button
                       onClick={() => handlePurchase(sweet._id, sweet.name)}

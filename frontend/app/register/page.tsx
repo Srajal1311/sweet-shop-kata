@@ -52,7 +52,7 @@ export default function RegisterPage() {
               value={formData.username}
               onChange={(e) => setFormData({...formData, username: e.target.value})}
             />
-            {/* 👇 Hint for the secret code */}
+            {/* Hint for the secret code */}
             <p className="text-xs text-gray-600 mt-2 ml-1">
               (Hint: Use <strong>admin</strong> to become an Admin)
             </p>

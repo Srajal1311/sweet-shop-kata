@@ -1,8 +1,8 @@
 const jwt = require('jsonwebtoken');
-const User = require('../../../models/User'); // 👈 Import the User model
+const User = require('../../../models/User');
 
 // 1. Protect Middleware (Login Check)
-exports.protect = async (req, res, next) => { // 👈 Mark as async
+exports.protect = async (req, res, next) => { 
   let token;
 
   // Check for token
@@ -22,8 +22,7 @@ exports.protect = async (req, res, next) => { // 👈 Mark as async
     // Verify token
     const decoded = jwt.verify(token, process.env.JWT_SECRET || 'secret_key_change_me');
 
-    // 👇 CRITICAL CHANGE: Fetch the user from the DB and attach to req
-    // We select '-password' so we don't pass the password hash around
+    
     req.user = await User.findById(decoded.id).select('-password');
 
     if (!req.user) {
@@ -39,7 +38,7 @@ exports.protect = async (req, res, next) => { // 👈 Mark as async
 
 // 2. Admin Middleware (Role Check)
 exports.admin = (req, res, next) => {
-  // Now req.user has the full database object, including 'role'
+  
   if (req.user && req.user.role === 'admin') {
     next();
   } else {

@@ -9,7 +9,7 @@ export default function EditSweetPage() {
   const params = useParams();
   const id = params.id as string;
 
-  // 👇 1. Update state to include image
+  // state to include image
   const [formData, setFormData] = useState({
     name: '',
     category: '',
@@ -29,7 +29,7 @@ export default function EditSweetPage() {
           category: data.category,
           price: data.price.toString(),
           quantity: data.quantity.toString(),
-          // 👇 2. Load existing image (or empty string if none)
+          // Load existing image (or empty string if none)
           image: data.image || ''
         });
       } catch (err) {

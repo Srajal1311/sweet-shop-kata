@@ -14,7 +14,7 @@ describe('Sweet Shop E2E Flow', () => {
   });
 
   beforeEach(() => {
-    // 👇 FIX: Use 127.0.0.1 instead of localhost
+    
     cy.visit('http://127.0.0.1:3000/login');
   });
 
@@ -25,7 +25,7 @@ describe('Sweet Shop E2E Flow', () => {
     cy.get('input[placeholder="••••••••"]').type('password123');
     cy.get('button').contains('Sign In').click();
 
-    // 👇 FIX: Use 127.0.0.1 here too
+    
     cy.url({ timeout: 10000 }).should('eq', 'http://127.0.0.1:3000/');
     
     // Check for Admin UI

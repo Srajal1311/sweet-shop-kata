@@ -16,14 +16,14 @@ export default function AddSweetPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      // 🚀 The Interceptor automatically adds your Token here!
+     
       await api.post('/sweets', {
         ...formData,
         price: Number(formData.price),
         quantity: Number(formData.quantity)
       });
       
-      // Success! Go back home to see the new sweet
+     
       router.push('/');
     } catch (err: any) {
       alert(err.response?.data?.message || 'Failed to add sweet');

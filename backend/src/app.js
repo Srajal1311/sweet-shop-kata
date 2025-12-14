@@ -6,7 +6,7 @@ const logger = require("morgan");
 const cookieParser = require("cookie-parser");
 const createError = require("http-errors");
 
-// ✅ UNCOMMENTED & FIXED PATH: Import the Master Router
+
 const v1Router = require("./api/v1/routes/index.route");
 
 const app = express();
@@ -19,12 +19,12 @@ app.use(cookieParser());
 
 
 app.use(cors({
-  origin: '*', // Allow any domain to access (Easiest for interview demos)
+  origin: '*', 
   credentials: true
 }));
 
 // 3. Routes
-// ✅ UNCOMMENTED: Connect the Master Router to /api/v1
+
 app.use("/api/v1", v1Router); 
 
 // Health Check
