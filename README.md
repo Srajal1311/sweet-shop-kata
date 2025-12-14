@@ -145,6 +145,19 @@ Stores authentication data and user roles.
 }
 ```
 
+### Sweet Model
+
+```javascript
+{
+  name: String,
+  category: String,
+  price: Number,
+  quantity: Number,
+  createdAt: Date,
+  updatedAt: Date
+}
+```
+
 ## 🎨 Frontend Architecture
 
 Built with **Next.js** and **Tailwind CSS**, focusing on component reusability and responsive design.
